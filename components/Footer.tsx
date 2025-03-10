@@ -9,7 +9,6 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link href="/products">Products</Link></li>
               <li><Link href="/services">Services</Link></li>
               <li><Link href="/blog">Blog</Link></li>
               <li><Link href="/support">Support</Link></li>

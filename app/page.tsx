@@ -211,7 +211,7 @@ export default function Home() {
           </p>
           <div className="space-x-4">
             <Button size="lg" variant="secondary">Quote</Button>
-            <Button size="lg" variant="secondary">Contact</Button>
+            <Button size="lg" variant="secondary">Contact Us</Button>
           </div>
         </div>
       </section>
@@ -223,7 +223,7 @@ export default function Home() {
 const features = [
   {
     title: 'Innovative Engineering',
-    description: 'Our portfolio boasts state-of-the-art 3 and 4-axis CNC machines, meticulously designed to handle the most challenging tasks with unparalleled accuracy. From compact models perfect for small enterprises to robust machines for industrial demands, our range is diverse and dynamic',
+    description: 'Our portfolio boasts state-of-the-art 3 and 4-axis CNC machines, meticulously designed to handle the most challenging tasks with unparalleled accuracy. From compact models perfect for small enterprises to robust machines for industrial demands, our range is diverse and dynamic.',
     icon: () => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -241,7 +241,7 @@ const features = [
     ),
   },
   {
-    title: 'Supirior Components',
+    title: 'Superior Components',
     description: ' At the heart of our machines lies the pioneering use of composite superstructures, ensuring unmatched durability with a lifetime guarantee. Comprising 75% indigenous components, we champion local craftsmanship complemented by globally sourced parts renowned for their precision.',
     icon: () => (
       <svg
