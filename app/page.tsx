@@ -36,37 +36,37 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-2 py-4">
             {[
               {
-                href: "/products/3-axis-cnc",
+                href: "/products/majestic-series",
                 image: "https://images.unsplash.com/photo-1565439361543-75e9138ee336?auto=format&fit=crop&w=800&q=80",
-                title: "Majestic Series",
+                title: "Meteor Series",
                 description: "High-end industrial CNC solutions",
                 delay: 0.1
               },
               {
-                href: "/products/3-axis-cnc",
+                href: "/products/mega-series",
                 image: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=800&q=80",
-                title: "Mega Series",
+                title: "Majestic Series",
                 description: "Large format CNC machines",
                 delay: 0.2
               },
               {
-                href: "/products/3-axis-cnc",
+                href: "/products/meteor-series",
                 image: "https://images.unsplash.com/photo-1565439361503-8c0198f3e005?auto=format&fit=crop&w=800&q=80",
-                title: "Meteor Series",
+                title: "PCB Series",
                 description: "High-speed precision machining",
                 delay: 0.3
               },
               {
                 href: "/products/pcb-cnc",
                 image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
-                title: "PCB Series",
+                title: "Special Purpose",
                 description: "Specialized PCB manufacturing",
                 delay: 0.4
               },
               {
                 href: "/products/4-axis-cnc",
                 image: "https://images.unsplash.com/photo-1581092160757-a35868236772?auto=format&fit=crop&w=800&q=80",
-                title: "Special Purpose",
+                title: "Engineering Composits",
                 description: "Custom CNC solutions",
                 delay: 0.5
               }
@@ -97,15 +97,6 @@ export default function Home() {
                   <div className="p-4" style={{ height: '60%' }}>
                     <h3 className="text-lg font-semibold mb-2 text-white">{product.title}</h3>
                     <p className="text-sm text-gray-400">{product.description}</p>
-                    <div className="mt-4">
-                      <h4 className="text-sm font-medium text-white mb-2">Key Features:</h4>
-                      <ul className="text-xs text-gray-400 space-y-1">
-                        <li>• High precision control</li>
-                        <li>• Advanced automation</li>
-                        <li>• Real-time monitoring</li>
-                        <li>• Smart diagnostics</li>
-                      </ul>
-                    </div>
                   </div>
                 </motion.div>
               </Link>
