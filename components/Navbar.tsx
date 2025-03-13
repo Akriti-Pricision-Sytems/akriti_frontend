@@ -21,15 +21,12 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const productCategories = [
-    { name: '3-Axis CNCs', href: '/products/3-axis-cnc' },
-    { name: '4-Axis CNCs', href: '/products/4-axis-cnc' },
-    { name: 'PCB CNCs', href: '/products/pcb-cnc' },
-    { name: '2-in-1 CNCs', href: '/products/2-in-1-cnc'},
+  
   ];
 
   const navItems = [
     { name: 'Services', href: '/services' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Teknomotor', href: '/teknomotor' },
     { name: 'Support', href: '/support' },
     { name: 'Store', href: '/store' },
   ];
@@ -66,7 +63,7 @@ export default function Navbar() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+                  <NavigationMenuTrigger>.............</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[200px] gap-2 p-4">
                       {productCategories.map((category) => (

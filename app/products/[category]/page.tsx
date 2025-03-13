@@ -2,13 +2,12 @@ import ProductCategoryClient from './ProductCategoryClient';
 
 export function generateStaticParams() {
   return [
-    { category: '3-axis-cnc' },
-    { category: '4-axis-cnc' },
-    { category: '2-in-1-cnc' },
-    { category: 'pcb-cnc' },
-    { category: 'mega-series'},
-    { category: 'majestic-series'},
     { category: 'meteor-series'},
+    { category: 'majestic-series'},
+    { category: 'pcb-precision-pro'},
+    { category: 'special-purpose'},
+    { category: 'engineering-composites'}
+
   ];
 }
 

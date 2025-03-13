@@ -23,121 +23,77 @@ const sizes = [
 ];
 
 const products = {
-  '3-axis-cnc': [
-    {
-      id: 'meteor-3-axis',
-      name: 'Meteor 3-Axis CNC',
-      description: 'High-speed precision 3-axis CNC machining system',
-      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '600x400mm'
-    },
-    {
-      id: 'majestic-3-axis',
-      name: 'Majestic 3-Axis CNC',
-      description: 'Industrial-grade 3-axis CNC system for demanding applications',
-      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '900x600mm'
-    },
-    {
-      id: 'mega-3-axis',
-      name: 'Mega 3-Axis CNC',
-      description: 'Large format 3-axis CNC for industrial production',
-      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '1520x900mm'
-    }
-  ],
-  '4-axis-cnc': [
-    {
-      id: 'majestic-4-axis',
-      name: 'Majestic 4-Axis CNC',
-      description: 'Advanced 4-axis CNC system with superior precision',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '1200x900mm'
-    },
-    {
-      id: 'mega-4-axis',
-      name: 'Mega 4-Axis CNC',
-      description: 'Heavy-duty 4-axis CNC system for large-scale manufacturing',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '1520x900mm'
-    }
-  ],
-  '2-in-1-cnc': [
-    {
-      id: 'meteor-2-in-1',
-      name: 'Meteor 2-in-1 CNC',
-      description: 'Versatile 2-in-1 CNC machine combining milling and routing capabilities',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '800x500mm'
-    }
-  ],
-  'pcb-cnc': [
-    {
-      id: 'pcb-prototyping-machine',
-      name: 'PCB Prototyping Machine',
-      description: 'Precision CNC for PCB manufacturing',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '400x300mm'
-    }
-  ],
-  'mega-series': [
-        {
-      id: 'mega-3-axis',
-      name: 'Mega 3-Axis CNC',
-      description: 'Large format 3-axis CNC for industrial production',
-      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '1520x900mm'
-    },
-    {
-      id: 'mega-4-axis',
-      name: 'Mega 4-Axis CNC',
-      description: 'Heavy-duty 4-axis CNC system for large-scale manufacturing',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '1520x900mm'
-    }
-  ],
-  'majestic-series': [
-    {
-      id: 'majestic-3-axis',
-      name: 'Majestic 3-Axis CNC',
-      description: 'Industrial-grade 3-axis CNC system for demanding applications',
-      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '900x600mm'
-    },
-    {
-      id: 'majestic-4-axis',
-      name: 'Majestic 4-Axis CNC',
-      description: 'Advanced 4-axis CNC system with superior precision',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '1200x900mm'
-    }
-  ],
   'meteor-series': [
-     {
-      id: 'meteor-3-axis',
-      name: 'Meteor 3-Axis CNC',
-      description: 'High-speed precision 3-axis CNC machining system',
-      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '600x400mm'
-    },
     {
-      id: 'meteor-2-in-1',
-      name: 'Meteor 2-in-1 CNC',
-      description: 'Versatile 2-in-1 CNC machine combining milling and routing capabilities',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      size: '800x500mm'
-    }
-  ]
+     id: 'meteor-1hp',
+     name: 'Meteor 1 HP Spindle CNC',
+     description: 'High-speed precision 3-axis CNC machining system',
+     image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+     size: '400x300mm'
+   },
+   {
+     id: 'meteor-1.5hp',
+     name: 'Meteor  1.5 HP Spindle CNC',
+     description: 'Versatile 2-in-1 CNC machine combining milling and routing capabilities',
+     image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+     size: '400x300mm'
+   },
+   {
+    id: 'meteor-3hp',
+    name: 'Meteor 3 HP Spindle CNC',
+    description: 'Versatile 2-in-1 CNC machine combining milling and routing capabilities',
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    size: '400x300mm'
+  }
+ ],
+ 'majestic-series': [
+  {
+    id: 'majestic-6040',
+    name: 'Majestic 6040',
+    description: 'Industrial-grade 3/4-axis CNC system for demanding applications',
+    image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    size: '600x400mm'
+  },
+  {
+    id: 'majestic-9060',
+    name: 'Majestic 9060',
+    description: 'Advanced 3/4-axis CNC system with superior precision',
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    size: '900x600mm'
+  },
+  {
+    id: 'majestic-1290',
+    name: 'Majestic 1290',
+    description: 'Advanced 3/4-axis CNC system with superior precision',
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    size: '1200x900mm'
+  }
+ ],
+'pcb-precision-pro': [
+  {
+    id: 'pcb-single-spindle',
+    name: 'PCB precision pro - Single spindle',
+    description: 'Precision CNC for PCB manufacturing',
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    size: '600x500mm'
+  },
+  {
+    id: 'pcb-double-spindle',
+    name: 'PCB precision pro - Double spindle',
+    description: 'Precision CNC for PCB manufacturing',
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    size: '600x500mm'
+  }
+ ],
 };
 
 const categoryTitles = {
-  '3-axis-cnc': '3-Axis CNC Machines',
-  '4-axis-cnc': '4-Axis CNC Machines',
-  '2-in-1-cnc': '2-in-1 CNC Machines',
-  'pcb-cnc': 'PCB CNC Machines',
-  'mega-series': 'Mega Series CNC Machines',
+  'meteor-series': 'Meteor Series CNC Machines',
   'majestic-series': 'Majestic Series CNC Machines',
-  'meteor-series': 'Meteor Series CNC Machines'
+  'pcb-precision-pro': 'PCB Precision Pro',
+  'special-purpose': 'Special Purpose CNC Machines',
+  'engineering-composites': 'Engineering Composites'
+
 };
 
 export default function ProductCategoryClient({ category }: { category: string }) {
