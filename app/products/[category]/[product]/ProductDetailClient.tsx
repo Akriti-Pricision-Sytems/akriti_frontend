@@ -773,9 +773,12 @@ export default function ProductDetailClient({ category, product }: { category: s
       setCurrentSlide(slider.track.details.rel);
     },
   });
-
-  const productData = productDetails[category as keyof typeof productDetails]?.[product as any];
-
+  
+  const productData =
+    productDetails[category as keyof typeof productDetails]?.[
+      product as keyof (typeof productDetails)[keyof typeof productDetails]
+    ];
+  
   if (!productData) {
     return (
       <div className="min-h-screen pt-24 pb-12 px-4 text-center">
