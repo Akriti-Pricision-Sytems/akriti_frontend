@@ -155,10 +155,11 @@ export default function Navbar() {
                   {item.name}
                 </Link>
               ))}
- 
+              <Link href="/contact">
               <div className="p-2">
                 <Button className="w-full">Contact Us</Button>
               </div>
+              </Link>
             </div>
           </motion.div>
         )}

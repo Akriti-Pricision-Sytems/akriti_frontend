@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -103,18 +103,30 @@ const upgradeNotes = {
   'majestic-series': '4th axis upgrade available for all variants'
 };
 
+const carouselImages = [
+  'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1581092160757-a35868236772?auto=format&fit=crop&w=1200&q=80'
+];
+
+
 export default function ProductCategoryClient({ category }: { category: string }) {
   const [selectedSize, setSelectedSize] = useState('All sizes');
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const categoryProducts = products[category as keyof typeof products] || [];
-  
-  const [sliderRef] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-  });
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  const categoryProducts = products[category as keyof typeof products] || [];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
   const filteredProducts = categoryProducts.filter(product => {
     return selectedSize === 'All sizes' || product.size === selectedSize;
   });
@@ -148,16 +160,25 @@ export default function ProductCategoryClient({ category }: { category: string }
         <div className="flex flex-col md:flex-row gap-8">
           {/* Left Section - Image Carousel and Description */}
           <div className="md:w-1/2 space-y-6">
-            <div ref={sliderRef} className="keen-slider rounded-lg overflow-hidden bg-gray-800">
-              {categoryProducts.map((product, idx) => (
-                <div key={idx} className="keen-slider__slide relative h-[400px]">
+          <div className="relative h-[600px] rounded-lg overflow-hidden">
+              {carouselImages.map((image, index) => (
+                <motion.div
+                  key={index}
+                  className="absolute inset-0"
+                  initial={{ opacity: 0 }}
+                  animate={{ 
+                    opacity: currentImageIndex === index ? 1 : 0,
+                    transition: { duration: 0.1 }
+                  }}
+                >
                   <Image
-                    src={product.image}
-                    alt={product.name}
+                    src={image}
+                    alt={`Category Image ${index + 1}`}
                     fill
                     className="object-cover"
+                    priority={index === 0}
                   />
-                </div>
+                </motion.div>
               ))}
             </div>
             
@@ -185,13 +206,21 @@ export default function ProductCategoryClient({ category }: { category: string }
                   className="block transition-transform hover:scale-[1.02]"
                 >
                   <Card className="bg-gray-800 border-gray-700 hover:bg-gray-750">
-                    <CardHeader>
-                      <CardTitle className="text-white">{product.name}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-300">{product.description}</p>
-                      <p className="text-sm text-gray-400 mt-4">Size: {product.size}</p>
-                    </CardContent>
+                    <div className="flex items-center p-4">
+                      <div className="relative w-32 h-32 flex-shrink-0">
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          fill
+                          className="object-cover rounded-lg"
+                        />
+                      </div>
+                      <div className="ml-4">
+                        <h3 className="text-xl font-semibold text-white">{product.name}</h3>
+                        <p className="text-gray-400 mt-2">{product.description}</p>
+                        <p className="text-sm text-gray-500 mt-2">Size: {product.size}</p>
+                      </div>
+                    </div>
                   </Card>
                 </Link>
               ))}
