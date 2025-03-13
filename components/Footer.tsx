@@ -52,25 +52,7 @@ export default function Footer() {
                 <Linkedin className="h-6 w-6" />
               </Link>
             </div>
-            <div>
-              <h4 className="font-semibold mb-2">Newsletter</h4>
-              <p className="text-sm text-gray-400 mb-4">
-                Stay informed about our latest CNC innovations and offers.
-              </p>
-              <form className="flex">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 rounded-l-md text-gray-900"
-                />
-                <button
-                  type="submit"
-                  className="bg-blue-600 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
+    
           </div>
         </div>
         

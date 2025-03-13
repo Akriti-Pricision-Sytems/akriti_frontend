@@ -36,11 +36,11 @@ export default function Home() {
                 description: "High-end industrial CNC solutions",
                 delay: 0.1,
                 animation: {
-                  initial: { scale: 0, opacity: 0 },
-                  animate: { scale: 1, opacity: 1 },
+                  initial: { y: 50, opacity: 0 },
+                  animate: { y: 0, opacity: 1 },
                   transition: { type: "spring", stiffness: 100 }
                 },
-                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-blue-500/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-blue-600/70"
+                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-blue-500/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-blue-600/70 hover:before:blur-sm hover:before:opacity-80"
               },
               {
                 href: "/products/majestic-series",
@@ -49,11 +49,11 @@ export default function Home() {
                 description: "Large format CNC machines",
                 delay: 0.2,
                 animation: {
-                  initial: { x: -50, opacity: 0 },
-                  animate: { x: 0, opacity: 1 },
+                  initial: { y: 50, opacity: 0 },
+                  animate: { y: 0, opacity: 1 },
                   transition: { type: "spring", stiffness: 100 }
                 },
-                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-blue-500/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-blue-600/70"
+                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-blue-500/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-blue-600/70 hover:before:blur-sm hover:before:opacity-80"
               },
               {
                 href: "/products/pcb-precision-pro",
@@ -66,7 +66,7 @@ export default function Home() {
                   animate: { y: 0, opacity: 1 },
                   transition: { type: "spring", stiffness: 100 }
                 },
-                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-blue-500/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-blue-600/70"
+                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-blue-500/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-blue-600/70 hover:before:blur-sm hover:before:opacity-80"
               },
               {
                 href: "/products/special-purpose",
@@ -74,7 +74,12 @@ export default function Home() {
                 title: "Special Purpose",
                 description: "Specialized PCB manufacturing",
                 delay: 0.4,
-                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-gray-700/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-gray-600/70"
+                animation: {
+                  initial: { y: 50, opacity: 0 },
+                  animate: { y: 0, opacity: 1 },
+                  transition: { type: "spring", stiffness: 100 }
+                },
+                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-[oklch(0.609_0.126_221.723)] before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-[oklch(0.609_0.126_221.723)] hover:before:blur-sm hover:before:opacity-80"
               },
               {
                 href: "/products/engineering-composites",
@@ -82,7 +87,12 @@ export default function Home() {
                 title: "Engineering Composits",
                 description: "Custom CNC solutions",
                 delay: 0.5,
-                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-gray-700/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-gray-600/70"
+                animation: {
+                  initial: { y: 50, opacity: 0 },
+                  animate: { y: 0, opacity: 1 },
+                  transition: { type: "spring", stiffness: 100 }
+                },
+                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-oklch(0.41_0.159_10.272) before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-oklch(0.41_0.159_10.272) hover:before:blur-sm hover:before:opacity-80"
               }
             ].map((product, index) => (
               <Link href={product.href} key={index}>

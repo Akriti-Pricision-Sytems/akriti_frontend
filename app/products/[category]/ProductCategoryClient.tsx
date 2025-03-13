@@ -19,7 +19,6 @@ const sizes = [
   'All sizes',
   '400x300mm',
   '600x400mm',
-  '800x500mm',
   '900x600mm',
   '1200x900mm',
   '1520x900mm'
