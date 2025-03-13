@@ -3,19 +3,13 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import LocationMap from '@/components/LocationMap';
-import { UnmatchedPrecision } from '@/components/svg/UnmatchedPrecision';
-import { InnovativeEngineering } from '@/components/svg/InnovativeEngineering';
-import { SuperiorComponents } from '@/components/svg/SuperiorComponents';
-import { ReliabilityCertified } from '@/components/svg/ReliabilityCertified';
-import { CustomizedSolutions } from '@/components/svg/CustomizedSolutions';
 import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-900">
       {/* Hero Section */}
-      <section className="bg-gray-900 min-h-screen flex flex-col justify-center">
+      <section className="min-h-screen flex flex-col justify-center">
         <div className="container mx-auto px-2">
           <motion.div 
             initial={{ opacity: 0 }}
@@ -40,43 +34,63 @@ export default function Home() {
                 image: "https://images.unsplash.com/photo-1565439361543-75e9138ee336?auto=format&fit=crop&w=800&q=80",
                 title: "Meteor Series",
                 description: "High-end industrial CNC solutions",
-                delay: 0.1
+                delay: 0.1,
+                animation: {
+                  initial: { scale: 0, opacity: 0 },
+                  animate: { scale: 1, opacity: 1 },
+                  transition: { type: "spring", stiffness: 100 }
+                },
+                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-blue-500/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-blue-600/70"
               },
               {
                 href: "/products/majestic-series",
                 image: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=800&q=80",
                 title: "Majestic Series",
                 description: "Large format CNC machines",
-                delay: 0.2
+                delay: 0.2,
+                animation: {
+                  initial: { x: -50, opacity: 0 },
+                  animate: { x: 0, opacity: 1 },
+                  transition: { type: "spring", stiffness: 100 }
+                },
+                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-blue-500/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-blue-600/70"
               },
               {
                 href: "/products/pcb-precision-pro",
                 image: "https://images.unsplash.com/photo-1565439361503-8c0198f3e005?auto=format&fit=crop&w=800&q=80",
                 title: "PCB Series",
                 description: "High-speed precision machining",
-                delay: 0.3
+                delay: 0.3,
+                animation: {
+                  initial: { y: 50, opacity: 0 },
+                  animate: { y: 0, opacity: 1 },
+                  transition: { type: "spring", stiffness: 100 }
+                },
+                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-blue-500/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-blue-600/70"
               },
               {
                 href: "/products/special-purpose",
                 image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
                 title: "Special Purpose",
                 description: "Specialized PCB manufacturing",
-                delay: 0.4
+                delay: 0.4,
+                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-gray-700/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-gray-600/70"
               },
               {
                 href: "/products/engineering-composites",
                 image: "https://images.unsplash.com/photo-1581092160757-a35868236772?auto=format&fit=crop&w=800&q=80",
                 title: "Engineering Composits",
                 description: "Custom CNC solutions",
-                delay: 0.5
+                delay: 0.5,
+                borderStyle: "before:absolute before:inset-0 before:border-2 before:border-gray-700/50 before:rounded-lg before:transition-all before:duration-300 hover:before:scale-95 hover:before:border-gray-600/70"
               }
             ].map((product, index) => (
               <Link href={product.href} key={index}>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: product.delay }}
-                  className="bg-gray-800 rounded-lg shadow-lg transform hover:scale-105 transition-transform cursor-pointer relative overflow-hidden"
+                  initial={product.animation?.initial || { opacity: 0, y: 20 }}
+                  animate={product.animation?.animate || { opacity: 1, y: 0 }}
+                  transition={product.animation?.transition || { delay: product.delay }}
+                  className={`bg-gray-800 transform hover:scale-105 transition-transform cursor-pointer relative overflow-hidden rounded-lg shadow-xl ${product.borderStyle}`}
                   style={{ aspectRatio: '1/2' }}
                 >
                   {/* Image Section (40% height) */}
@@ -102,13 +116,8 @@ export default function Home() {
               </Link>
             ))}
           </div>
-          
-
-
         </div>
       </section>
-
- 
     </div>
   );
 }

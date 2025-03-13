@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useKeenSlider } from 'keen-slider/react';
+import "keen-slider/keen-slider.min.css";
 import {
   Select,
   SelectContent,
@@ -93,33 +96,47 @@ const categoryTitles = {
   'pcb-precision-pro': 'PCB Precision Pro',
   'special-purpose': 'Special Purpose CNC Machines',
   'engineering-composites': 'Engineering Composites'
+};
 
+const upgradeNotes = {
+  'meteor-series': 'Laser upgrade available',
+  'majestic-series': '4th axis upgrade available'
 };
 
 export default function ProductCategoryClient({ category }: { category: string }) {
   const [selectedSize, setSelectedSize] = useState('All sizes');
+  const [currentSlide, setCurrentSlide] = useState(0);
   const categoryProducts = products[category as keyof typeof products] || [];
   
+  const [sliderRef] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+  });
+
   const filteredProducts = categoryProducts.filter(product => {
     return selectedSize === 'All sizes' || product.size === selectedSize;
   });
 
+  const upgradeNote = upgradeNotes[category as keyof typeof upgradeNotes];
+
   return (
-    <div className="min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen pt-24 pb-12 bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-          <h1 className="text-3xl font-bold mb-4 md:mb-0">
+          <h1 className="text-3xl font-bold mb-4 md:mb-0 text-white">
             {categoryTitles[category as keyof typeof categoryTitles]}
           </h1>
           
-          <div className="w-full md:w-auto flex flex-col md:flex-row gap-4">
+          <div className="w-full md:w-auto">
             <Select value={selectedSize} onValueChange={setSelectedSize}>
-              <SelectTrigger className="w-[200px]">
+              <SelectTrigger className="w-[200px] bg-gray-800 text-white border-gray-700">
                 <SelectValue placeholder="Select size" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-gray-800 text-white border-gray-700">
                 {sizes.map((size) => (
-                  <SelectItem key={size} value={size}>
+                  <SelectItem key={size} value={size} className="hover:bg-gray-700">
                     {size}
                   </SelectItem>
                 ))}
@@ -128,39 +145,59 @@ export default function ProductCategoryClient({ category }: { category: string }
           </div>
         </div>
 
-        {filteredProducts.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-gray-500">No products found for the selected size.</p>
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* Left Section - Image Carousel and Description */}
+          <div className="md:w-1/2 space-y-6">
+            <div ref={sliderRef} className="keen-slider rounded-lg overflow-hidden bg-gray-800">
+              {categoryProducts.map((product, idx) => (
+                <div key={idx} className="keen-slider__slide relative h-[400px]">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <h2 className="text-xl font-bold mb-4 text-white">Series Description</h2>
+              <p className="text-gray-300">
+                Professional grade CNC machines designed for precision manufacturing and industrial applications.
+              </p>
+            </div>
+
+            {upgradeNote && (
+              <div className="bg-gray-800 p-6 rounded-lg border-l-4 border-blue-500">
+                <p className="text-lg font-semibold text-white">{upgradeNote}</p>
+              </div>
+            )}
           </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProducts.map((product) => (
-              <Link
-                key={product.id}
-                href={`/products/${category}/${product.id}`}
-                className="transition-transform hover:scale-105"
-              >
-                <Card className="overflow-hidden h-full">
-                  <div className="relative h-48">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle>{product.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">{product.description}</p>
-                    <p className="text-sm text-gray-500 mt-4">Size: {product.size}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+
+          {/* Right Section - Product Cards */}
+          <div className="md:w-1/2">
+            <div className="space-y-4">
+              {filteredProducts.map((product) => (
+                <Link
+                  key={product.id}
+                  href={`/products/${category}/${product.id}`}
+                  className="block transition-transform hover:scale-[1.02]"
+                >
+                  <Card className="bg-gray-800 border-gray-700 hover:bg-gray-750">
+                    <CardHeader>
+                      <CardTitle className="text-white">{product.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-300">{product.description}</p>
+                      <p className="text-sm text-gray-400 mt-4">Size: {product.size}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
