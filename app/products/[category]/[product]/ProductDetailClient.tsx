@@ -763,8 +763,8 @@ const productDetails = {
       ]
     }
   },
-
 };
+
 export default function ProductDetailClient({ category, product }: { category: string; product: string }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef] = useKeenSlider({

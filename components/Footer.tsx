@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -17,11 +17,10 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">Support</h3>
+            <h3 className="text-xl font-bold mb-4">Help</h3>
             <ul className="space-y-2">
               <li><Link href="/contact">Contact Us</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
-              <li><Link href="/documentation">Documentation</Link></li>
               <li><Link href="/resources">Resources</Link></li>
             </ul>
           </div>
@@ -39,17 +38,20 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Connect With Us</h3>
             <div className="flex space-x-4 mb-4">
-              <Link href="#" className="hover:text-blue-400 transition-colors">
+              <Link href="https://www.facebook.com/akritisystems/" className="hover:text-blue-400 transition-colors">
                 <Facebook className="h-6 w-6" />
               </Link>
-              <Link href="#" className="hover:text-blue-400 transition-colors">
+              <Link href="https://x.com/AkritiSystems" className="hover:text-blue-400 transition-colors">
                 <Twitter className="h-6 w-6" />
               </Link>
-              <Link href="#" className="hover:text-blue-400 transition-colors">
+              <Link href="https://www.instagram.com/akritisystems/" className="hover:text-blue-400 transition-colors">
                 <Instagram className="h-6 w-6" />
               </Link>
-              <Link href="#" className="hover:text-blue-400 transition-colors">
+              <Link href="https://www.linkedin.com/company/akriti-precision-systems/" className="hover:text-blue-400 transition-colors">
                 <Linkedin className="h-6 w-6" />
+              </Link>
+              <Link href="https://www.youtube.com/@akritisystems" className="hover:text-blue-400 transition-colors">
+                <Youtube className="h-6 w-6" />
               </Link>
             </div>
     

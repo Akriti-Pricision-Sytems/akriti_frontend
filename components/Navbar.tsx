@@ -93,12 +93,13 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            
-            <Button>Contact Us</Button>
+            <Link href="/contact">
+            <Button className='bg-indigo-500 hover:bg-fuchsia-500'>Contact Us</Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden">
+          <div className="lg:hidden"> 
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700"
@@ -154,7 +155,7 @@ export default function Navbar() {
                   {item.name}
                 </Link>
               ))}
-              
+ 
               <div className="p-2">
                 <Button className="w-full">Contact Us</Button>
               </div>

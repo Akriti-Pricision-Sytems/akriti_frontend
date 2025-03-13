@@ -19,6 +19,7 @@ const sizes = [
   'All sizes',
   '400x300mm',
   '600x400mm',
+  '600x500mm',
   '900x600mm',
   '1200x900mm',
   '1520x900mm'
@@ -98,8 +99,8 @@ const categoryTitles = {
 };
 
 const upgradeNotes = {
-  'meteor-series': 'Laser upgrade available',
-  'majestic-series': '4th axis upgrade available'
+  'meteor-series': 'Laser upgrade available for all variants',
+  'majestic-series': '4th axis upgrade available for all variants'
 };
 
 export default function ProductCategoryClient({ category }: { category: string }) {
