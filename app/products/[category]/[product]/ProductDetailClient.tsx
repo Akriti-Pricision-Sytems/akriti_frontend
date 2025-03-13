@@ -10,7 +10,36 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Check, PenTool as Tool, Settings, Shield, Package, Cpu, Wrench } from 'lucide-react';
 
-const productDetails = {
+interface Product {
+  name: string;
+  description: string;
+  images: string[];
+  size: string;
+  price: string;
+  features: string[];
+  specifications: Record<string, string>;
+  applications: string[];
+  included: string[];
+  controller: {
+    name: string;
+    features: string[];
+    specifications: Record<string, string>;
+  };
+  upgrades: {
+    name: string;
+    description: string;
+    price: string;
+  }[];
+  accessories: {
+    name: string;
+    description: string;
+    price: string;
+  }[];
+}
+
+type ProductDetails = Record<string, Record<string, Product>>;
+
+const productDetails: ProductDetails = {
   'meteor-series': {
     'meteor-1hp': {
       name: 'Meteor 1 HP Spindle CNC',
@@ -104,7 +133,7 @@ const productDetails = {
         }
       ]
     },
-     'meteor-1.5hp': {
+    'meteor-1.5hp': {
       name: 'Meteor 1.5 HP Spindle CNC',
       description: 'Versatile 2-in-1 CNC machine combining milling and routing capabilities',
       images: [
@@ -199,7 +228,6 @@ const productDetails = {
           price: '$2,499'
         }
       ]
-    
     },
     'meteor-3hp': {
       name: 'Meteor 3 HP Spindle CNC',
@@ -296,7 +324,6 @@ const productDetails = {
           price: '$2,499'
         }
       ]
-    
     }
   },
   'majestic-series':{
@@ -765,19 +792,24 @@ const productDetails = {
   },
 };
 
-export default function ProductDetailClient({ category, product }: { category: string; product: string }) {
+interface ProductDetailClientProps {
+  // Restrict category to the keys of productDetails
+  category: keyof ProductDetails;
+  // Product key will be a string that exists on productDetails[category]
+  product: string;
+}
+
+export default function ProductDetailClient({ category, product }: ProductDetailClientProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [sliderRef] = useKeenSlider({
+  const [sliderRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
     },
   });
   
-  const productData =
-    productDetails[category as keyof typeof productDetails]?.[
-      product as keyof (typeof productDetails)[keyof typeof productDetails]
-    ];
+  // Use optional chaining to safely access the product data
+  const productData = productDetails[category]?.[product];
   
   if (!productData) {
     return (

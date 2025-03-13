@@ -21,7 +21,7 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const productCategories = [
-  
+    {name: '3-axis', href:'/products/meteor-series'}
   ];
 
   const navItems = [
